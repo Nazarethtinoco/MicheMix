@@ -1,0 +1,4477 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>MicheMix Tamarindo — Mocktail Artesanal Sin Alcohol · Managua</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --orange: #e8520a;
+        --amber: #f5a623;
+        --red: #c0392b;
+        --dark: #0d0905;
+        --dark2: #1a0f08;
+        --dark3: #241408;
+        --cream: #fff3e0;
+        --text-muted: rgba(255, 243, 224, 0.6);
+        --wa-green: #25d366;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: var(--dark);
+        color: var(--cream);
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem clamp(1.2rem, 4vw, 4rem);
+        background: rgba(13, 9, 5, 0.92);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(232, 82, 10, 0.2);
+        transition: padding 0.3s;
+      }
+      nav.scrolled {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+      }
+      .nav-logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.5rem, 4vw, 1.8rem);
+        letter-spacing: 0.12em;
+        color: var(--orange);
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .nav-logo span {
+        color: var(--cream);
+      }
+      .nav-links {
+        display: flex;
+        gap: clamp(0.8rem, 1.5vw, 2rem);
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.66rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        transition: color 0.3s;
+        white-space: nowrap;
+      }
+      .nav-links a:hover {
+        color: var(--amber);
+      }
+      .nav-cta {
+        background: var(--orange);
+        color: #fff;
+        border: none;
+        padding: 0.6rem clamp(0.8rem, 2vw, 1.6rem);
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+        text-decoration: none;
+        display: inline-block;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .nav-cta:hover {
+        background: var(--amber);
+        transform: translateY(-1px);
+      }
+      /* Botón carrito */
+      .cart-icon {
+        background: transparent;
+        border: 1px solid rgba(232, 82, 10, 0.4);
+        color: var(--cream);
+        padding: 0.6rem clamp(0.8rem, 2vw, 1rem);
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        position: relative;
+        border-radius: 30px;
+        flex-shrink: 0;
+      }
+      .cart-icon:hover {
+        background: rgba(232, 82, 10, 0.1);
+        border-color: var(--orange);
+      }
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--orange);
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 5px;
+        background: none;
+        border: none;
+        flex-shrink: 0;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--cream);
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(13, 9, 5, 0.97);
+        z-index: 200;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+        color: var(--cream);
+        text-decoration: none;
+        letter-spacing: 0.08em;
+        transition: color 0.3s;
+      }
+      .mobile-menu a:hover {
+        color: var(--orange);
+      }
+      .mobile-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 2rem;
+        color: var(--cream);
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 0 60px;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 60% 50%,
+            rgba(232, 82, 10, 0.25) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 20% 70%,
+            rgba(192, 57, 43, 0.15) 0%,
+            transparent 50%
+          ),
+          var(--dark);
+        animation: bgPulse 6s ease-in-out infinite alternate;
+      }
+      @keyframes bgPulse {
+        from {
+          opacity: 0.7;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--amber);
+        opacity: 0;
+        animation: floatUp linear infinite;
+      }
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(0) scale(0);
+        }
+        10% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-120vh) scale(1.5);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: clamp(2rem, 4vw, 4rem);
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+      }
+      .hero-text {
+        animation: slideInLeft 1s ease forwards;
+      }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(232, 82, 10, 0.2);
+        border: 1px solid rgba(232, 82, 10, 0.5);
+        color: var(--amber);
+        padding: 0.35rem 1rem;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        transition: opacity 0.4s;
+      }
+      .hero-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.8rem, 7vw, 7rem);
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+        margin-bottom: 1rem;
+      }
+      .hero-title .line1 {
+        color: var(--cream);
+        display: block;
+      }
+      .hero-title .line2 {
+        color: var(--orange);
+        display: block;
+      }
+      .hero-title .line3 {
+        color: var(--amber);
+        display: block;
+        font-size: 0.55em;
+      }
+      .hero-sub {
+        font-size: clamp(0.78rem, 2vw, 0.85rem);
+        color: var(--text-muted);
+        line-height: 1.8;
+        max-width: 400px;
+        margin-bottom: 2.5rem;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--orange);
+        color: #fff;
+        border: none;
+        padding: 0.9rem clamp(1.4rem, 3vw, 2.2rem);
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn-primary:hover {
+        background: var(--amber);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(232, 82, 10, 0.4);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--cream);
+        border: 1px solid rgba(255, 243, 224, 0.3);
+        padding: 0.9rem clamp(1.4rem, 3vw, 2.2rem);
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn-secondary:hover {
+        border-color: var(--amber);
+        color: var(--amber);
+        transform: translateY(-2px);
+      }
+      .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: slideInRight 1s ease forwards;
+        min-height: 300px;
+      }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .hero-glow {
+        position: absolute;
+        width: min(380px, 80%);
+        height: min(380px, 80%);
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(232, 82, 10, 0.35) 0%,
+          transparent 70%
+        );
+        animation: glowPulse 3s ease-in-out infinite;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      @keyframes glowPulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.1);
+          opacity: 1;
+        }
+      }
+      .hero-img-wrap {
+        position: relative;
+        z-index: 2;
+        animation: float3d 4s ease-in-out infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      @keyframes float3d {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-1deg);
+        }
+        50% {
+          transform: translateY(-18px) rotate(1deg);
+        }
+      }
+      .hero-img {
+        width: 100%;
+        max-width: min(440px, 90%);
+        height: auto;
+        filter: drop-shadow(0 30px 60px rgba(232, 82, 10, 0.4));
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+      .hero-img-ph {
+        width: min(300px, 85%);
+        aspect-ratio: 3/4;
+        border: 2px solid rgba(232, 82, 10, 0.3);
+        background: radial-gradient(
+          ellipse at center,
+          rgba(232, 82, 10, 0.12) 0%,
+          transparent 70%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        position: relative;
+        z-index: 2;
+        margin: 0 auto;
+      }
+      .slide-indicators {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.6rem;
+        z-index: 20;
+      }
+      .indicator {
+        width: 30px;
+        height: 3px;
+        background: rgba(255, 243, 224, 0.25);
+        cursor: pointer;
+        transition: all 0.4s;
+      }
+      .indicator.active {
+        background: var(--orange);
+        width: 60px;
+      }
+      .slide-text {
+        position: absolute;
+        bottom: 5rem;
+        left: 10%;
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .slide-text::before {
+        content: "";
+        width: 40px;
+        height: 1px;
+        background: var(--orange);
+      }
+
+      /* STATS */
+      .stats-strip {
+        background: var(--dark2);
+        border-top: 1px solid rgba(232, 82, 10, 0.2);
+        border-bottom: 1px solid rgba(232, 82, 10, 0.2);
+        padding: 1.2rem clamp(0.5rem, 3vw, 4rem);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        overflow-x: auto;
+      }
+      .stat {
+        text-align: center;
+        flex: 1;
+        min-width: 0;
+        padding: 0.4rem 0.2rem;
+      }
+      .stat-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.4rem, 5vw, 2.8rem);
+        color: var(--orange);
+        letter-spacing: 0.05em;
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: clamp(0.45rem, 1.5vw, 0.65rem);
+        color: var(--text-muted);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: 0.25rem;
+        line-height: 1.2;
+      }
+      .stat-divider {
+        width: 1px;
+        height: 40px;
+        background: rgba(232, 82, 10, 0.2);
+        flex-shrink: 0;
+      }
+
+      /* SECTIONS GENERALES */
+      .section {
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .section-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--orange);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .section-label::before {
+        content: "";
+        width: 30px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .section-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 5vw, 4.5rem);
+        line-height: 0.95;
+        margin-bottom: 1.5rem;
+      }
+
+      /* VIDEO */
+      .video-section {
+        background: var(--dark);
+        padding: 0;
+        overflow: hidden;
+      }
+      .video-header {
+        text-align: center;
+        padding: clamp(3rem, 6vw, 5rem) clamp(1.2rem, 4vw, 4rem) 3rem;
+      }
+      .video-header .section-label {
+        justify-content: center;
+      }
+      .video-header .section-label::before {
+        display: none;
+      }
+      .video-header p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        max-width: 500px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+      .video-wrapper {
+        max-width: 1100px;
+        margin: 0 auto clamp(3rem, 5vw, 5rem);
+        padding: 0 clamp(1.2rem, 4vw, 4rem);
+      }
+      .video-container {
+        position: relative;
+        border: 2px solid rgba(232, 82, 10, 0.3);
+        overflow: hidden;
+        box-shadow: 0 0 80px rgba(232, 82, 10, 0.25);
+        background: #000;
+      }
+      .video-container video {
+        width: 100%;
+        display: block;
+        max-height: 70vh;
+        object-fit: cover;
+      }
+      .vc-tl,
+      .vc-tr,
+      .vc-bl,
+      .vc-br {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        z-index: 3;
+      }
+      .vc-tl {
+        top: -1px;
+        left: -1px;
+        border-top: 3px solid var(--orange);
+        border-left: 3px solid var(--orange);
+      }
+      .vc-tr {
+        top: -1px;
+        right: -1px;
+        border-top: 3px solid var(--orange);
+        border-right: 3px solid var(--orange);
+      }
+      .vc-bl {
+        bottom: -1px;
+        left: -1px;
+        border-bottom: 3px solid var(--orange);
+        border-left: 3px solid var(--orange);
+      }
+      .vc-br {
+        bottom: -1px;
+        right: -1px;
+        border-bottom: 3px solid var(--orange);
+        border-right: 3px solid var(--orange);
+      }
+      .video-ph {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: linear-gradient(135deg, #1a0f08, #0d0905, #241408);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      /* QUÉ ES MICHEMIX */
+      .quees-section {
+        background: var(--dark2);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .quees-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(3rem, 6vw, 6rem);
+        align-items: center;
+      }
+      .quees-img-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .quees-img {
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 20px 40px rgba(232, 82, 10, 0.3));
+        transition: transform 0.5s ease;
+        display: block;
+      }
+      .product-tags {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+      .tag {
+        border: 1px solid rgba(232, 82, 10, 0.4);
+        color: var(--orange);
+        padding: 0.3rem 0.9rem;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .product-desc {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: var(--text-muted);
+        line-height: 1.9;
+        margin-bottom: 2.5rem;
+      }
+
+      /* HISTORIA */
+      .historia-section {
+        background: var(--dark3);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+        position: relative;
+        overflow: hidden;
+      }
+      .historia-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .historia-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(3rem, 5vw, 5rem);
+        align-items: center;
+      }
+      .historia-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .h-step {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+      .h-step-dot {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(232, 82, 10, 0.15);
+        border: 2px solid var(--orange);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .h-step-body h4 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.2rem;
+        color: var(--cream);
+        letter-spacing: 0.05em;
+        margin-bottom: 0.3rem;
+      }
+      .h-step-body p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+      .historia-quote {
+        background: linear-gradient(
+          135deg,
+          rgba(232, 82, 10, 0.12),
+          rgba(13, 9, 5, 0.9)
+        );
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        padding: clamp(2rem, 4vw, 3rem);
+        position: relative;
+      }
+      .hq-text {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        color: var(--cream);
+        line-height: 1.7;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+      .hq-text span {
+        color: var(--orange);
+        font-style: normal;
+        font-weight: 700;
+      }
+      .hq-author {
+        font-size: 0.65rem;
+        color: var(--amber);
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      /* PROPUESTA DE VALOR */
+      .valor-section {
+        background: var(--dark);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .valor-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .valor-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .valor-header .section-label {
+        justify-content: center;
+      }
+      .valor-header .section-label::before {
+        display: none;
+      }
+      .valor-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .valor-card {
+        background: rgba(255, 243, 224, 0.02);
+        border: 1px solid rgba(232, 82, 10, 0.15);
+        padding: clamp(1.8rem, 3vw, 2.5rem);
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .valor-card:hover {
+        background: rgba(232, 82, 10, 0.05);
+        border-color: rgba(232, 82, 10, 0.4);
+        transform: translateY(-6px);
+      }
+      .valor-card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+        display: block;
+      }
+      .valor-card-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 0.04em;
+        color: var(--cream);
+        margin-bottom: 0.8rem;
+      }
+      .valor-card-desc {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+      .valor-promise {
+        background: linear-gradient(
+          135deg,
+          rgba(232, 82, 10, 0.1),
+          rgba(245, 166, 35, 0.05)
+        );
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        padding: clamp(2rem, 4vw, 3.5rem);
+        text-align: center;
+      }
+      .vp-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        color: var(--amber);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .vp-text {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.4rem, 3vw, 2.2rem);
+        color: var(--cream);
+        letter-spacing: 0.04em;
+      }
+      .vp-text span {
+        color: var(--orange);
+      }
+
+      /* MISIÓN VISIÓN */
+      .mv-section {
+        background: var(--dark2);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .mv-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .mv-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .mv-header .section-label {
+        justify-content: center;
+      }
+      .mv-header .section-label::before {
+        display: none;
+      }
+      .mv-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .mv-card {
+        border: 1px solid rgba(232, 82, 10, 0.2);
+        background: rgba(255, 243, 224, 0.02);
+        padding: clamp(1.8rem, 3vw, 2.5rem);
+        transition: all 0.3s;
+      }
+      .mv-card:hover {
+        background: rgba(232, 82, 10, 0.04);
+        transform: translateY(-4px);
+      }
+      .mv-icon {
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem;
+      }
+      .mv-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+      .mv-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 0.05em;
+        color: var(--cream);
+        margin-bottom: 1rem;
+      }
+      .mv-text {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.85;
+      }
+      .valores-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+      .valor-chip {
+        background: rgba(232, 82, 10, 0.08);
+        border: 1px solid rgba(232, 82, 10, 0.2);
+        padding: 1rem 1.2rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .valor-chip:hover {
+        background: rgba(232, 82, 10, 0.15);
+        border-color: var(--orange);
+      }
+      .valor-emoji {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .valor-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1rem;
+        color: var(--cream);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+      }
+      .valor-sub-text {
+        font-size: 0.62rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      /* PRODUCTOS */
+      .productos-section {
+        background: var(--dark);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .productos-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .productos-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .productos-header .section-label {
+        justify-content: center;
+      }
+      .productos-header .section-label::before {
+        display: none;
+      }
+      .productos-header p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+      .producto-featured {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: center;
+        margin-bottom: 4rem;
+        padding-bottom: 4rem;
+        border-bottom: 1px solid rgba(232, 82, 10, 0.15);
+      }
+      .producto-featured.reverse {
+        grid-template-columns: 1.1fr 1fr;
+        direction: rtl;
+      }
+      .producto-featured.reverse > * {
+        direction: ltr;
+      }
+      .prod-img-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .prod-img {
+        width: 100%;
+        max-width: 380px;
+        max-height: 450px;
+        object-fit: contain;
+        filter: drop-shadow(0 20px 40px rgba(232, 82, 10, 0.3));
+        transition: transform 0.5s;
+      }
+      .prod-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+      }
+      .prod-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+      .prod-badge-text {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--orange);
+        text-transform: uppercase;
+      }
+      .prod-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        color: var(--cream);
+        letter-spacing: 0.03em;
+        line-height: 0.95;
+        margin-bottom: 0.5rem;
+      }
+      .prod-variant {
+        font-size: 0.75rem;
+        color: var(--amber);
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+      }
+      .prod-desc-text {
+        font-size: clamp(0.8rem, 2vw, 0.88rem);
+        color: var(--text-muted);
+        line-height: 1.9;
+        margin-bottom: 1.8rem;
+      }
+      .prod-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        margin-bottom: 1.8rem;
+      }
+      .prod-detail {
+        background: rgba(255, 243, 224, 0.03);
+        border: 1px solid rgba(255, 243, 224, 0.07);
+        padding: 0.8rem 1rem;
+      }
+      .pd-label {
+        font-size: 0.55rem;
+        color: var(--amber);
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+      }
+      .pd-val {
+        font-size: 0.8rem;
+        color: var(--cream);
+        font-weight: 600;
+      }
+      .prod-price-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .prod-price {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.8rem;
+        color: var(--orange);
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+      .add-to-cart-btn {
+        background: rgba(232, 82, 10, 0.15);
+        border: 1px solid var(--orange);
+        color: var(--orange);
+        padding: 0.7rem 1.5rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 30px;
+      }
+      .add-to-cart-btn:hover {
+        background: var(--orange);
+        color: white;
+      }
+
+      /* INGREDIENTES */
+      .ingredients-section {
+        background: var(--dark2);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .ingredients-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .ingredient-card {
+        background: rgba(255, 243, 224, 0.03);
+        border: 1px solid rgba(232, 82, 10, 0.15);
+        padding: clamp(1.2rem, 3vw, 2rem);
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .ingredient-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .ingredient-card:hover {
+        background: rgba(232, 82, 10, 0.05);
+        border-color: rgba(232, 82, 10, 0.4);
+      }
+      .ing-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .ing-name {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.4rem;
+        color: var(--cream);
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+      }
+      .ing-desc {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* BENEFICIOS */
+      .benefits-section {
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+      .benefit-item {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        padding: clamp(1.2rem, 3vw, 2rem);
+        border: 1px solid rgba(255, 243, 224, 0.06);
+        transition: all 0.3s;
+      }
+      .benefit-item:hover {
+        border-color: rgba(232, 82, 10, 0.3);
+        transform: translateY(-4px);
+      }
+      .benefit-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3rem;
+        color: rgba(232, 82, 10, 0.2);
+        line-height: 1;
+        min-width: 50px;
+      }
+      .benefit-text h3 {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--cream);
+      }
+      .benefit-text p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* GALERÍA CARRUSEL */
+      .galeria-section {
+        background: var(--dark3);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+        overflow: hidden;
+      }
+      .galeria-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .galeria-header .section-label {
+        justify-content: center;
+      }
+      .galeria-header .section-label::before {
+        display: none;
+      }
+      .galeria-track-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+      .galeria-track {
+        display: flex;
+        gap: 1.2rem;
+        animation: scrollGaleria 28s linear infinite;
+        width: max-content;
+      }
+      .galeria-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes scrollGaleria {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .galeria-card {
+        width: 280px;
+        height: 200px;
+        flex-shrink: 0;
+        border: 1px solid rgba(232, 82, 10, 0.2);
+        overflow: hidden;
+        background: var(--dark2);
+        transition: all 0.3s;
+      }
+      .galeria-card:hover {
+        border-color: var(--orange);
+        transform: scale(1.03);
+      }
+      .galeria-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+        display: block;
+      }
+      .galeria-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .g-btn {
+        background: rgba(232, 82, 10, 0.12);
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        color: var(--orange);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+
+      /* IDENTIDAD NICARAGÜENSE */
+      .nica-section {
+        background: var(--dark);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .nica-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .nica-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(3rem, 6vw, 6rem);
+        align-items: center;
+      }
+      .nica-banner {
+        background: linear-gradient(
+          135deg,
+          rgba(232, 82, 10, 0.15),
+          rgba(245, 166, 35, 0.08)
+        );
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        padding: 2.5rem;
+        text-align: center;
+      }
+      .nica-img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 10px;
+      }
+      .nica-big-quote {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.6rem, 4vw, 2.8rem);
+        color: var(--cream);
+        margin-bottom: 1.5rem;
+      }
+      .nica-big-quote span {
+        color: var(--orange);
+      }
+      .nica-body {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: var(--text-muted);
+        line-height: 1.9;
+        margin-bottom: 2rem;
+      }
+      .nica-tags {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .nica-tag {
+        background: rgba(232, 82, 10, 0.1);
+        border: 1px solid rgba(232, 82, 10, 0.25);
+        color: var(--orange);
+        padding: 0.35rem 1rem;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .nica-chips {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+      .nica-chip {
+        background: rgba(255, 243, 224, 0.02);
+        border: 1px solid rgba(255, 243, 224, 0.07);
+        padding: 0.9rem 1rem;
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+      }
+
+      /* CTA */
+      .cta-section {
+        background: var(--dark2);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+        text-align: center;
+      }
+      .cta-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.5rem, 7vw, 6rem);
+        line-height: 0.9;
+        margin-bottom: 1.5rem;
+      }
+      .cta-title span {
+        color: var(--orange);
+      }
+      .cta-sub {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: var(--text-muted);
+        max-width: 500px;
+        margin: 0 auto 3rem;
+      }
+      .cta-btns {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* NUEVAS SECCIONES AGREGADAS */
+      .nueva-seccion {
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .card-nueva {
+        background: rgba(255, 243, 224, 0.03);
+        border: 1px solid rgba(232, 82, 10, 0.15);
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .card-nueva:hover {
+        border-color: rgba(232, 82, 10, 0.4);
+        transform: translateY(-5px);
+      }
+      .card-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .card-nueva h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+      }
+      .card-nueva p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* FAQ */
+      .faq-grid {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border-bottom: 1px solid rgba(232, 82, 10, 0.15);
+        margin-bottom: 1rem;
+      }
+      .faq-question {
+        padding: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+      }
+      .faq-question:hover {
+        color: var(--orange);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 1.2rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        line-height: 1.7;
+      }
+      .faq-item.open .faq-answer {
+        max-height: 300px;
+        padding-bottom: 1.2rem;
+      }
+
+      /* Testimonios */
+      .testimonio-stars {
+        color: var(--amber);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+      .testimonio-text {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+      .testimonio-author {
+        font-weight: 700;
+        color: var(--cream);
+      }
+      .testimonio-role {
+        font-size: 0.7rem;
+        color: var(--orange);
+      }
+
+      /* Buscador */
+      .search-bar {
+        max-width: 400px;
+        margin: 2rem auto;
+        position: relative;
+      }
+      .search-bar input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background: rgba(255, 243, 224, 0.05);
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        border-radius: 50px;
+        color: var(--cream);
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85rem;
+      }
+      .search-bar input::placeholder {
+        color: var(--text-muted);
+      }
+      .search-bar input:focus {
+        outline: none;
+        border-color: var(--orange);
+      }
+
+      /* CONTACTO */
+      #contacto {
+        background: var(--dark);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .contact-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .contact-inner .section-label {
+        justify-content: center;
+      }
+      .contact-inner .section-label::before {
+        display: none;
+      }
+      .contact-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 5vw, 4rem);
+        margin-bottom: 0.8rem;
+      }
+      .social-cards {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+      .social-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 243, 224, 0.08);
+        background: rgba(255, 243, 224, 0.02);
+        text-decoration: none;
+        transition: all 0.3s;
+        min-width: 130px;
+      }
+      .social-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--orange);
+      }
+      .sicon {
+        width: 50px;
+        height: 50px;
+        background: rgba(232, 82, 10, 0.2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+      .sname {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1rem;
+        color: var(--cream);
+      }
+      .shandle {
+        font-size: 0.6rem;
+        color: var(--text-muted);
+      }
+
+      /* MAPA */
+      .mapa-section {
+        background: var(--dark2);
+        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+      }
+      .mapa-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .mapa-card {
+        background: rgba(255, 243, 224, 0.03);
+        border: 1px solid rgba(232, 82, 10, 0.2);
+        padding: 1.2rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
+      .mapa-card h4 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.2rem;
+        color: var(--amber);
+        margin: 0.5rem 0;
+      }
+      .mapa-embed-wrap {
+        border: 2px solid rgba(232, 82, 10, 0.3);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+      .mapa-embed-wrap iframe {
+        width: 100%;
+        height: 350px;
+        border: none;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--dark3);
+        border-top: 1px solid rgba(232, 82, 10, 0.1);
+        padding: clamp(2rem, 4vw, 3rem) clamp(1.2rem, 4vw, 4rem) 0;
+      }
+      .footer-main {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 243, 224, 0.05);
+      }
+      .footer-logo-big {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2rem;
+        color: var(--orange);
+      }
+      .footer-nav h4,
+      .footer-politicas h4 {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--orange);
+        margin-bottom: 1rem;
+      }
+      .footer-nav ul,
+      .footer-politicas ul {
+        list-style: none;
+      }
+      .footer-nav a,
+      .footer-politicas a {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        line-height: 1.8;
+        transition: color 0.3s;
+      }
+      .footer-nav a:hover,
+      .footer-politicas a:hover {
+        color: var(--cream);
+      }
+      .github-strip {
+        padding: 1.5rem 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+      }
+      .github-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--text-muted);
+        transition: color 0.3s;
+      }
+      .github-badge:hover {
+        color: var(--cream);
+      }
+      .gh-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      /* CARRITO MODAL */
+      .cart-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+      .cart-modal.open {
+        display: flex;
+      }
+      .cart-content {
+        background: var(--dark2);
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        border-radius: 20px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 2rem;
+      }
+      .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(232, 82, 10, 0.2);
+        padding-bottom: 1rem;
+      }
+      .cart-header h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        color: var(--orange);
+      }
+      .cart-close {
+        background: none;
+        border: none;
+        color: var(--cream);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 243, 224, 0.1);
+      }
+      .cart-item-info h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+      .cart-item-info p {
+        font-size: 0.7rem;
+        color: var(--text-muted);
+      }
+      .cart-item-quantity {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .cart-item-quantity button {
+        background: rgba(232, 82, 10, 0.2);
+        border: none;
+        color: var(--cream);
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .cart-total {
+        padding: 1rem 0;
+        text-align: right;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--orange);
+      }
+      .cart-checkout {
+        width: 100%;
+        background: var(--orange);
+        color: white;
+        border: none;
+        padding: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      /* WA FLOAT */
+      .wa-float {
+        position: fixed;
+        bottom: 2rem;
+        right: 1.5rem;
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+        animation: waPop 0.5s ease 2s both;
+      }
+      @keyframes waPop {
+        from {
+          opacity: 0;
+          transform: scale(0.5) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      .wa-bubble {
+        background: var(--wa-green);
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        transition: transform 0.3s;
+      }
+      .wa-bubble:hover {
+        transform: scale(1.1);
+      }
+      .wa-label {
+        background: rgba(13, 9, 5, 0.9);
+        border: 1px solid rgba(37, 211, 102, 0.3);
+        color: var(--cream);
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(10px);
+        transition: all 0.3s;
+        pointer-events: none;
+      }
+      .wa-float:hover .wa-label {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 1024px) {
+        .mv-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .valores-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .valor-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nica-grid {
+          grid-template-columns: 1fr;
+        }
+        .quees-inner {
+          grid-template-columns: 1fr;
+        }
+        .historia-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem 1.2rem;
+        }
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .hero {
+          padding: 90px 0 60px;
+        }
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 1.5rem;
+          width: 88%;
+        }
+        .hero-visual {
+          order: -1;
+          min-height: 180px;
+        }
+        .hero-btns {
+          justify-content: center;
+        }
+        .producto-featured {
+          grid-template-columns: 1fr;
+        }
+        .producto-featured.reverse {
+          grid-template-columns: 1fr;
+          direction: ltr;
+        }
+        .ingredients-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+        .mv-grid {
+          grid-template-columns: 1fr;
+        }
+        .valores-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .valor-grid {
+          grid-template-columns: 1fr;
+        }
+        .mapa-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-main {
+          flex-direction: column;
+          text-align: center;
+        }
+        .github-strip {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .ingredients-grid {
+          grid-template-columns: 1fr;
+        }
+        .valores-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== TU CHATBOT ORIGINAL ===== */
+      .chat-float {
+        position: fixed;
+        bottom: 6.5rem;
+        right: 1.5rem;
+        z-index: 98;
+      }
+      .chat-trigger {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e8520a, #c0392b);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 20px rgba(232, 82, 10, 0.45);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        position: relative;
+      }
+      .chat-trigger::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px solid rgba(232, 82, 10, 0.35);
+        animation: chatPing 2s ease-in-out infinite;
+      }
+      @keyframes chatPing {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.3);
+          opacity: 0;
+        }
+      }
+      .chat-trigger:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 28px rgba(232, 82, 10, 0.65);
+      }
+      .chat-notif {
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #f5a623;
+        border: 2px solid #0d0905;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.55rem;
+        font-weight: 900;
+        color: #0d0905;
+        font-family: "Montserrat", sans-serif;
+        animation: notifBounce 1s ease-in-out infinite;
+      }
+      @keyframes notifBounce {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+      .chat-window {
+        position: fixed;
+        bottom: 1rem;
+        right: 1.5rem;
+        width: min(380px, 94vw);
+        height: min(580px, 85vh);
+        background: #0d0905;
+        border: 1px solid rgba(232, 82, 10, 0.4);
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 300;
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(232, 82, 10, 0.15);
+        transform: scale(0.85) translateY(20px);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.25s ease;
+        transform-origin: bottom right;
+      }
+      .chat-window.open {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+      .chat-header {
+        background: linear-gradient(
+          135deg,
+          rgba(232, 82, 10, 0.2),
+          rgba(192, 57, 43, 0.15)
+        );
+        border-bottom: 1px solid rgba(232, 82, 10, 0.25);
+        padding: 1rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        flex-shrink: 0;
+      }
+      .chat-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e8520a, #c0392b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .chat-avatar::after {
+        content: "";
+        position: absolute;
+        bottom: 1px;
+        right: 1px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #25d366;
+        border: 2px solid #0d0905;
+      }
+      .chat-header-info h4 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        color: #fff3e0;
+        margin: 0;
+        line-height: 1;
+      }
+      .chat-header-info span {
+        font-size: 0.6rem;
+        color: rgba(255, 243, 224, 0.5);
+        font-family: "Montserrat", sans-serif;
+        letter-spacing: 0.08em;
+      }
+      .chat-close {
+        margin-left: auto;
+        background: none;
+        border: 1px solid rgba(255, 243, 224, 0.15);
+        color: rgba(255, 243, 224, 0.6);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      .chat-close:hover {
+        background: rgba(232, 82, 10, 0.2);
+        border-color: var(--orange);
+        color: #fff3e0;
+      }
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        scroll-behavior: smooth;
+      }
+      .chat-msg {
+        display: flex;
+        gap: 0.6rem;
+        align-items: flex-end;
+        animation: msgIn 0.3s ease;
+      }
+      @keyframes msgIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .chat-msg.user {
+        flex-direction: row-reverse;
+      }
+      .msg-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e8520a, #c0392b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+        align-self: flex-start;
+      }
+      .msg-bubble {
+        max-width: 75%;
+        padding: 0.65rem 0.9rem;
+        border-radius: 14px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.78rem;
+        line-height: 1.6;
+      }
+      .chat-msg.bot .msg-bubble {
+        background: rgba(255, 243, 224, 0.06);
+        border: 1px solid rgba(255, 243, 224, 0.1);
+        color: rgba(255, 243, 224, 0.9);
+        border-bottom-left-radius: 4px;
+      }
+      .chat-msg.user .msg-bubble {
+        background: linear-gradient(135deg, #e8520a, #c0392b);
+        color: #fff;
+        border-bottom-right-radius: 4px;
+      }
+      .msg-bubble strong {
+        color: #f5a623;
+      }
+      .chat-quick-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        padding: 0 1rem 0.5rem;
+      }
+      .chat-qbtn {
+        background: rgba(232, 82, 10, 0.1);
+        border: 1px solid rgba(232, 82, 10, 0.3);
+        color: #f5a623;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.65rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .chat-qbtn:hover {
+        background: rgba(232, 82, 10, 0.25);
+        border-color: #e8520a;
+        transform: translateY(-1px);
+      }
+      .chat-input-area {
+        padding: 0.8rem 1rem;
+        border-top: 1px solid rgba(232, 82, 10, 0.15);
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        flex-shrink: 0;
+        background: rgba(13, 9, 5, 0.95);
+      }
+      .chat-input {
+        flex: 1;
+        background: rgba(255, 243, 224, 0.05);
+        border: 1px solid rgba(255, 243, 224, 0.12);
+        border-radius: 20px;
+        padding: 0.55rem 1rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        color: #fff3e0;
+        outline: none;
+      }
+      .chat-input::placeholder {
+        color: rgba(255, 243, 224, 0.3);
+      }
+      .chat-input:focus {
+        border-color: rgba(232, 82, 10, 0.5);
+      }
+      .chat-send {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e8520a, #c0392b);
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        flex-shrink: 0;
+      }
+      .chat-send:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 14px rgba(232, 82, 10, 0.5);
+      }
+      .typing-indicator {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+        padding: 0.5rem 0.8rem;
+      }
+      .typing-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(232, 82, 10, 0.6);
+        animation: typingBounce 1.2s ease-in-out infinite;
+      }
+      .typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      @keyframes typingBounce {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.5;
+        }
+        50% {
+          transform: translateY(-5px);
+          opacity: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .chat-window {
+          right: 0.5rem;
+          bottom: 0.5rem;
+          width: calc(100vw - 1rem);
+          height: 85vh;
+          border-radius: 16px 16px 12px 12px;
+        }
+        .chat-float {
+          right: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/50581831981" target="_blank" class="wa-float">
+      <span class="wa-label">Escríbenos</span>
+      <div class="wa-bubble">📱</div>
+    </a>
+
+    <!-- NAV -->
+    <nav id="mainNav">
+      <a href="#" class="nav-logo">Miche<span>Mix</span></a>
+      <ul class="nav-links">
+        <li><a href="#quees">¿Qué es?</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#valor">Propuesta de Valor</a></li>
+        <li><a href="#mision">Nosotros</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#identidad">Identidad Nica</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="cart-icon" id="cartIcon">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="https://wa.me/50581831981" target="_blank" class="nav-cta"
+        >Ordenar Ahora</a
+      >
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" id="mobileClose">✕</button>
+      <a href="#quees" onclick="closeMobile()">¿Qué es MicheMix?</a>
+      <a href="#historia" onclick="closeMobile()">Historia</a>
+      <a href="#valor" onclick="closeMobile()">Propuesta de Valor</a>
+      <a href="#mision" onclick="closeMobile()">Nosotros</a>
+      <a href="#productos" onclick="closeMobile()">Productos</a>
+      <a href="#identidad" onclick="closeMobile()">Identidad Nica</a>
+      <a href="#contacto" onclick="closeMobile()">Contacto</a>
+      <a
+        href="https://wa.me/50581831981"
+        target="_blank"
+        style="color: var(--orange)"
+        >Ordenar 🌶</a
+      >
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="particles" id="particles"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge" id="badge">🌶 100% Libre de Alcohol</div>
+          <h1 class="hero-title">
+            <span class="line1" id="line1">LA MICHE</span>
+            <span class="line2" id="line2">QUE BUSCABAS</span>
+            <span class="line3" id="line3"
+              >Artisanal Mocktails · Sabor Real</span
+            >
+          </h1>
+          <p class="hero-sub" id="hero-sub">
+            Michelada de tamarindo artesanal sin alcohol. Agua gasificada,
+            especias naturales y todo el sabor que te mereces — sin culpa, sin
+            resaca, con toda la vibra.
+          </p>
+          <div class="hero-btns">
+            <a
+              href="https://wa.me/50581831981"
+              target="_blank"
+              class="btn-primary"
+              >Ordenar Ahora</a
+            >
+            <a href="#quees" class="btn-secondary">Ver Más ↓</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-glow"></div>
+          <div class="hero-img-wrap">
+            <img
+              src="img/foto2.png"
+              class="hero-img"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="hero-img-ph" style="display: none">
+              <div class="ph-icon">🌶</div>
+              <div class="ph-text">Foto del producto aquí</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-text" id="slide-label">Desliza para descubrir</div>
+      <div class="slide-indicators">
+        <div class="indicator active" onclick="goSlide(0)"></div>
+        <div class="indicator" onclick="goSlide(1)"></div>
+        <div class="indicator" onclick="goSlide(2)"></div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Sin Alcohol · Artesanal</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Líneas de Producto</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">C$149</div>
+        <div class="stat-label">Precio Classic · Desde</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Universidades en Managua</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">🇳🇮</div>
+        <div class="stat-label">Hecho con Orgullo Nica</div>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <section class="video-section">
+      <div class="video-header">
+        <div class="section-label">MicheMix en Acción</div>
+        <h2 class="section-title reveal">
+          NUESTRO<br /><span style="color: var(--orange)">PRODUCTO</span>
+        </h2>
+        <p class="reveal">
+          Mirá de cerca la explosión de sabor que MicheMix trae a cada sorbo.
+          Artesanal, natural y brutal.
+        </p>
+      </div>
+      <div class="video-wrapper reveal">
+        <div class="video-container">
+          <div class="vc-tl"></div>
+          <div class="vc-tr"></div>
+          <div class="vc-bl"></div>
+          <div class="vc-br"></div>
+          <video
+            id="mainVideo"
+            src="mp_.mp4"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="video-ph" id="videoPh">
+            <div class="video-ph-icon">🌶</div>
+            <p>Coloca "mp_.mp4" en la misma carpeta para activar el video</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ ES MICHEMIX -->
+    <section class="quees-section" id="quees">
+      <div class="quees-inner">
+        <div class="quees-img-wrap reveal">
+          <div class="quees-img-bg"></div>
+          <img
+            src="img/foto.png"
+            class="quees-img"
+            alt="MicheMix"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="quees-img-ph" style="display: none">
+            <div class="iph-emoji">🌶</div>
+            <div class="iph-title">MicheMix</div>
+            <div class="iph-sub">Coloca tu foto del producto aquí</div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="section-label">¿Qué es MicheMix?</div>
+          <h2 class="section-title">
+            SABOR QUE<br /><span style="color: var(--orange)">EXPLOTA</span>
+          </h2>
+          <div class="product-tags">
+            <span class="tag">Tamarindo</span
+            ><span class="tag">Sin Alcohol</span
+            ><span class="tag">Gasificada</span
+            ><span class="tag">Artesanal</span
+            ><span class="tag">Personalizable</span>
+          </div>
+          <p class="product-desc">
+            MicheMix Tamarindo es una michelada artesanal 100% sin alcohol
+            elaborada con pulpa de tamarindo natural, combinada con chamoy,
+            chile, tajín y limón fresco, servida en vaso de 16 oz con escarchado
+            personalizable.<br /><br />Nacida en las universidades de Managua,
+            MicheMix es la bebida que te permite vivir la experiencia de una
+            michelada auténtica — sin restricciones, sin alcohol, con todo el
+            sabor.
+          </p>
+          <a
+            href="https://wa.me/50581831981?text=Hola!%20Quiero%20ordenar%20mi%20MicheMix%20🌶🔥"
+            target="_blank"
+            class="btn-primary"
+            >Pedir Ahora</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- NUESTRA HISTORIA -->
+    <section class="historia-section" id="historia">
+      <div class="historia-inner">
+        <div class="reveal" style="margin-bottom: 3rem">
+          <div class="section-label">Nuestra Historia</div>
+          <h2 class="section-title">
+            NACIMOS EN<br /><span style="color: var(--orange)">EL CAMPUS</span>
+          </h2>
+        </div>
+        <div class="historia-grid">
+          <div class="historia-timeline reveal">
+            <div class="h-step">
+              <div class="h-step-dot">💡</div>
+              <div class="h-step-body">
+                <h4>La Idea</h4>
+                <p>
+                  Todo comenzó en los pasillos de la UNI, Managua. Queríamos una
+                  bebida con sabor real, visual brutal y cero alcohol.
+                </p>
+              </div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-dot">🧪</div>
+              <div class="h-step-body">
+                <h4>El Proceso</h4>
+                <p>
+                  Semanas de pruebas con tamarindo local, distintas mezclas de
+                  chamoy, tajín y chile hasta encontrar la fórmula perfecta.
+                </p>
+              </div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-dot">🚀</div>
+              <div class="h-step-body">
+                <h4>El Lanzamiento</h4>
+                <p>
+                  Primera aparición en ferias universitarias de Managua. La
+                  reacción fue inmediata.
+                </p>
+              </div>
+            </div>
+            <div class="h-step">
+              <div class="h-step-dot">🌟</div>
+              <div class="h-step-body">
+                <h4>Hoy</h4>
+                <p>
+                  MicheMix es ya una marca reconocida en el campus universitario
+                  de Managua.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="historia-quote reveal">
+            <p class="hq-text">
+              "Queríamos crear algo que fuera 100% <span>nuestro</span> — con
+              sabor de Nicaragua, sin alcohol, y con una presentación que te
+              hiciera querer subirlo a tus stories al instante."
+            </p>
+            <div class="hq-author">
+              — Equipo Fundador MicheMix · UNI Managua
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPUESTA DE VALOR -->
+    <section class="valor-section" id="valor">
+      <div class="valor-inner">
+        <div class="valor-header reveal">
+          <div class="section-label">Propuesta de Valor</div>
+          <h2 class="section-title">
+            LO QUE NOS HACE<br /><span style="color: var(--orange)"
+              >DIFERENTES</span
+            >
+          </h2>
+          <p>
+            Creamos valor real para nuestros clientes desde el primer sorbo.
+          </p>
+        </div>
+        <div class="valor-grid">
+          <div class="valor-card reveal">
+            <span class="valor-card-icon">🌿</span>
+            <div class="valor-card-title">Ingredientes Naturales</div>
+            <p class="valor-card-desc">
+              Pulpa de tamarindo producida internamente con insumos locales.
+            </p>
+          </div>
+          <div class="valor-card reveal">
+            <span class="valor-card-icon">🎨</span>
+            <div class="valor-card-title">Experiencia Personalizada</div>
+            <p class="valor-card-desc">
+              Elegís tu nivel de picante, acidez y escarchado.
+            </p>
+          </div>
+          <div class="valor-card reveal">
+            <span class="valor-card-icon">🚫🍺</span>
+            <div class="valor-card-title">Inclusión Total</div>
+            <p class="valor-card-desc">
+              100% sin alcohol. La michelada que todos pueden disfrutar.
+            </p>
+          </div>
+          <div class="valor-card reveal">
+            <span class="valor-card-icon">📸</span>
+            <div class="valor-card-title">Visual Irresistible</div>
+            <p class="valor-card-desc">
+              El escarchado de tajín convierte cada vaso en una pieza única.
+            </p>
+          </div>
+          <div class="valor-card reveal">
+            <span class="valor-card-icon">💰</span>
+            <div class="valor-card-title">Precio Accesible</div>
+            <p class="valor-card-desc">
+              Desde C$149 el Classic. Calidad artesanal al alcance del bolsillo.
+            </p>
+          </div>
+          <div class="valor-card reveal">
+            <span class="valor-card-icon">🇳🇮</span>
+            <div class="valor-card-title">Identidad Nicaragüense</div>
+            <p class="valor-card-desc">
+              Hecho en Managua, con ingredientes locales y manos universitarias.
+            </p>
+          </div>
+        </div>
+        <div class="valor-promise reveal">
+          <div class="vp-label">Nuestra Promesa de Valor</div>
+          <div class="vp-text">
+            SABOR REAL. SIN ALCOHOL. <span>100% VOS.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIÓN, VISIÓN Y VALORES -->
+    <section class="mv-section" id="mision">
+      <div class="mv-inner">
+        <div class="mv-header reveal">
+          <div class="section-label">Quiénes Somos</div>
+          <h2 class="section-title">
+            MISIÓN, VISIÓN<br /><span style="color: var(--orange)"
+              >Y VALORES</span
+            >
+          </h2>
+        </div>
+        <div class="mv-grid">
+          <div class="mv-card reveal">
+            <div class="mv-icon">🎯</div>
+            <div class="mv-label">Misión</div>
+            <div class="mv-title">Por Qué Existimos</div>
+            <p class="mv-text">
+              Elaborar y comercializar micheladas artesanales sin alcohol de
+              sabor único, producidas con ingredientes locales de calidad.
+            </p>
+          </div>
+          <div class="mv-card reveal">
+            <div class="mv-icon">🚀</div>
+            <div class="mv-label">Visión</div>
+            <div class="mv-title">Hacia Dónde Vamos</div>
+            <p class="mv-text">
+              Consolidarse como la marca líder de mocktails artesanales en el
+              segmento universitario de Managua.
+            </p>
+          </div>
+        </div>
+        <div class="reveal" style="margin-top: 2.5rem">
+          <div
+            class="section-label"
+            style="justify-content: center; margin-bottom: 1.5rem"
+          >
+            <span>Nuestros Valores</span>
+          </div>
+          <div class="valores-grid">
+            <div class="valor-chip">
+              <span class="valor-emoji">🌿</span>
+              <div class="valor-name">Autenticidad</div>
+              <div class="valor-sub-text">
+                Ingredientes locales, proceso artesanal
+              </div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">🎨</span>
+              <div class="valor-name">Innovación</div>
+              <div class="valor-sub-text">
+                Creamos lo que el mercado no tenía
+              </div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">🤝</span>
+              <div class="valor-name">Inclusión</div>
+              <div class="valor-sub-text">Sin alcohol — para todos</div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">⭐</span>
+              <div class="valor-name">Calidad</div>
+              <div class="valor-sub-text">Pulpa producida internamente</div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">🌱</span>
+              <div class="valor-name">Sostenibilidad</div>
+              <div class="valor-sub-text">Ingredientes naturales</div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">💛</span>
+              <div class="valor-name">Servicio</div>
+              <div class="valor-sub-text">
+                Personalización y atención directa
+              </div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">🇳🇮</span>
+              <div class="valor-name">Identidad Nica</div>
+              <div class="valor-sub-text">Orgullo local en cada sorbo</div>
+            </div>
+            <div class="valor-chip">
+              <span class="valor-emoji">📈</span>
+              <div class="valor-name">Crecimiento</div>
+              <div class="valor-sub-text">
+                De emprendimiento a marca referente
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSCADOR -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Buscar productos... (Classic, Premium, Kit)"
+      />
+    </div>
+
+    <!-- NUESTROS PRODUCTOS -->
+    <section class="productos-section" id="productos">
+      <div class="productos-inner">
+        <div class="productos-header reveal">
+          <div class="section-label">Nuestros Productos</div>
+          <h2 class="section-title">
+            ELIGE TU<br /><span style="color: var(--orange)">MICHEMIX</span>
+          </h2>
+          <p>
+            Tres líneas diseñadas para cada momento, cada bolsillo y cada
+            ocasión. Todos artesanales, todos sin alcohol, todos brutalmente
+            buenos.
+          </p>
+        </div>
+
+        <!-- Producto Classic -->
+        <div
+          class="producto-featured reveal"
+          data-name="MicheMix Classic"
+          data-price="149"
+        >
+          <div class="prod-img-wrap">
+            <img
+              src="img/produc1.png"
+              class="prod-img"
+              alt="MicheMix Classic"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="prod-img-ph" style="display: none">
+              <div class="pip-icon">🌶</div>
+              <div class="pip-label">
+                Foto Producto A aquí<br />(img/productoA.png)
+              </div>
+            </div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-badge">
+              <div class="prod-badge-dot"></div>
+              <span class="prod-badge-text">El Favorito · Más Vendido</span>
+            </div>
+            <div class="prod-name">MicheMix<br />Classic</div>
+            <div class="prod-variant">Base: Agua Gasificada · 16 oz</div>
+            <p class="prod-desc-text">
+              La versión original y más popular. Base de agua gasificada Luna o
+              Fuente Pura de Sabor, pulpa de tamarindo natural producida
+              internamente, limón fresco, chamoy, tajín y chile al gusto. Vaso
+              escarchado con tajín para una presentación visual irresistible.
+            </p>
+            <div class="prod-details">
+              <div class="prod-detail">
+                <div class="pd-label">Presentación</div>
+                <div class="pd-val">Vaso 16 oz escarchado</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Base</div>
+                <div class="pd-val">Agua Gasificada Natural</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Alcohol</div>
+                <div class="pd-val">0% — Sin Alcohol</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Personalizable</div>
+                <div class="pd-val">Picante · Acidez · Escarchado</div>
+              </div>
+            </div>
+            <div class="prod-price-row">
+              <div class="prod-price">C$149</div>
+              <div class="prod-price-note">
+                <strong>Precio unitario</strong>B2B (50+ unidades): C$134
+              </div>
+            </div>
+            <button
+              class="add-to-cart-btn"
+              onclick="addToCart('MicheMix Classic', 149)"
+            >
+              🛒 Agregar al Carrito
+            </button>
+            <a
+              href="https://wa.me/50581831981?text=Hola!%20Quiero%20el%20MicheMix%20Classic%20🌶"
+              target="_blank"
+              class="btn-primary"
+              style="margin-left: 1rem; padding: 0.7rem 1.5rem"
+              >Pedir Classic</a
+            >
+          </div>
+        </div>
+
+        <!-- Producto Premium -->
+        <div
+          class="producto-featured reverse reveal"
+          data-name="MicheMix Premium"
+          data-price="199"
+        >
+          <div class="prod-img-wrap">
+            <img
+              src="img/produc2.jpg"
+              class="prod-img"
+              alt="MicheMix Premium"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="prod-img-ph" style="display: none">
+              <div class="pip-icon">🍺</div>
+              <div class="pip-label">
+                Foto Producto B aquí<br />(img/productoB.png)
+              </div>
+            </div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-badge">
+              <div
+                class="prod-badge-dot"
+                style="background: var(--amber)"
+              ></div>
+              <span class="prod-badge-text" style="color: var(--amber)"
+                >Experiencia Premium</span
+              >
+            </div>
+            <div class="prod-name">MicheMix<br />Premium</div>
+            <div class="prod-variant">Base: Heineken Sin Alcohol · 16 oz</div>
+            <p class="prod-desc-text">
+              Llevamos MicheMix al siguiente nivel. La misma fórmula artesanal
+              de tamarindo, chamoy, tajín y limón fresco — pero con base de
+              Heineken Sin Alcohol para una experiencia de marca internacional
+              con toda la autenticidad nica. Para los que quieren lo mejor.
+            </p>
+            <div class="prod-details">
+              <div class="prod-detail">
+                <div class="pd-label">Presentación</div>
+                <div class="pd-val">Vaso 16 oz escarchado</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Base</div>
+                <div class="pd-val">Heineken Sin Alcohol</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Alcohol</div>
+                <div class="pd-val">0% — Sin Alcohol</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Personalizable</div>
+                <div class="pd-val">Picante · Acidez · Escarchado</div>
+              </div>
+            </div>
+            <div class="prod-price-row">
+              <div class="prod-price" style="color: var(--amber)">C$199</div>
+              <div class="prod-price-note">
+                <strong>Precio unitario</strong>B2B (50+ unidades): C$179
+              </div>
+            </div>
+            <button
+              class="add-to-cart-btn"
+              onclick="addToCart('MicheMix Premium', 199)"
+            >
+              🛒 Agregar al Carrito
+            </button>
+            <a
+              href="https://wa.me/50581831981?text=Hola!%20Quiero%20el%20MicheMix%20Premium%20🍺"
+              target="_blank"
+              class="btn-primary"
+              style="
+                margin-left: 1rem;
+                padding: 0.7rem 1.5rem;
+                background: var(--amber);
+              "
+              >Pedir Premium</a
+            >
+          </div>
+        </div>
+
+        <!-- Producto Kit -->
+        <div
+          class="producto-featured reveal"
+          data-name="Kit MicheMix Hazlo en Casa"
+          data-price="349"
+          style="border-bottom: none; margin-bottom: 0; padding-bottom: 0"
+        >
+          <div class="prod-img-wrap">
+            <img
+              src="img/produc3.jpg"
+              class="prod-img"
+              alt="Kit MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="prod-img-ph" style="display: none">
+              <div class="pip-icon">🎁</div>
+              <div class="pip-label">
+                Foto Kit aquí<br />(img/productoC.png)
+              </div>
+            </div>
+          </div>
+          <div class="prod-info">
+            <div class="prod-badge">
+              <div class="prod-badge-dot" style="background: #e91e63"></div>
+              <span class="prod-badge-text" style="color: #e91e63"
+                >Ideal para Regalar</span
+              >
+            </div>
+            <div class="prod-name">Kit MicheMix<br />"Hazlo en Casa"</div>
+            <div class="prod-variant">
+              Caja Completa · Para preparar en casa o regalar
+            </div>
+            <p class="prod-desc-text">
+              El regalo universitario perfecto para graduaciones, cumpleaños y
+              fin de semestre. Incluye todos los ingredientes necesarios para
+              preparar MicheMix en casa: pulpa de tamarindo, chamoy, tajín,
+              chile y vaso escarchado — con tarjeta personalizable. El margen de
+              sabor más alto del portafolio.
+            </p>
+            <div class="prod-details">
+              <div class="prod-detail">
+                <div class="pd-label">Presentación</div>
+                <div class="pd-val">Caja kit completa</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Incluye</div>
+                <div class="pd-val">Todos los ingredientes + vaso</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Uso</div>
+                <div class="pd-val">En casa o como regalo</div>
+              </div>
+              <div class="prod-detail">
+                <div class="pd-label">Personalizable</div>
+                <div class="pd-val">Tarjeta con mensaje incluida</div>
+              </div>
+            </div>
+            <div class="prod-price-row">
+              <div class="prod-price" style="color: #e91e63">C$349</div>
+              <div class="prod-price-note">
+                <strong>Precio unitario</strong>2+ kits: 5% off · B2B: C$314
+              </div>
+            </div>
+            <button
+              class="add-to-cart-btn"
+              onclick="addToCart('Kit MicheMix Hazlo en Casa', 349)"
+            >
+              🛒 Agregar al Carrito
+            </button>
+            <a
+              href="https://wa.me/50581831981?text=Hola!%20Quiero%20el%20Kit%20MicheMix%20🎁"
+              target="_blank"
+              class="btn-primary"
+              style="
+                margin-left: 1rem;
+                padding: 0.7rem 1.5rem;
+                background: #c2185b;
+              "
+              >Pedir el Kit</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== NUEVAS SECCIONES AGREGADAS ========== -->
+
+    <!-- MÉTODOS DE PAGO -->
+    <section class="nueva-seccion" style="background: var(--dark3)">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <div class="section-label" style="justify-content: center">
+          Métodos de Pago
+        </div>
+        <h2 class="section-title">
+          PAGÁ COMO<br /><span style="color: var(--orange)">PREFIERAS</span>
+        </h2>
+        <div class="grid-3">
+          <div class="card-nueva">
+            <span class="card-icon">💵</span>
+            <h3>Efectivo</h3>
+            <p>Contra entrega · Pago al recibir tu MicheMix</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">🏦</span>
+            <h3>Transferencia Bancaria</h3>
+            <p>BAC · Banpro · Lafise · Cuenta en pesos</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">💳</span>
+            <h3>Tarjeta Crédito/Débito</h3>
+            <p>Visa · Mastercard · Enlace de pago seguro</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">📱</span>
+            <h3>Pago Móvil</h3>
+            <p>Sinpe Móvil · Depósito en sucursal</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">🔗</span>
+            <h3>Enlace de Pago</h3>
+            <p>Te enviamos link seguro por WhatsApp</p>
+          </div>
+        </div>
+        <p
+          style="
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 1.5rem;
+          "
+        >
+          🔒 Pagos 100% seguros · Condiciones claras y transparentes
+        </p>
+      </div>
+    </section>
+
+    <!-- ENVÍOS Y ENTREGAS -->
+    <section class="nueva-seccion" style="background: var(--dark2)">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <div class="section-label" style="justify-content: center">
+          Envíos y Entregas
+        </div>
+        <h2 class="section-title">
+          TE LLEVAMOS<br /><span style="color: var(--orange)">TU MICHEMIX</span>
+        </h2>
+        <div class="grid-3">
+          <div class="card-nueva">
+            <span class="card-icon">🗺️</span>
+            <h3>Cobertura</h3>
+            <p>Managua · UNI · UNAN · UAM · UNCSM · UNHSJM</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">💰</span>
+            <h3>Costo de Envío</h3>
+            <p>Desde C$30 · Zona universitaria C$20</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">⏱️</span>
+            <h3>Tiempo de Entrega</h3>
+            <p>24-48 horas · Mismo día (pedidos antes de 2pm)</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">🏪</span>
+            <h3>Retiro en Tienda</h3>
+            <p>UNI Campus Central · Sin costo adicional</p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">🚚</span>
+            <h3>Delivery</h3>
+            <p>Empresa aliada · Seguimiento de tu pedido</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS / RESEÑAS -->
+    <section
+      class="nueva-seccion"
+      id="testimonios"
+      style="background: var(--dark)"
+    >
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <div class="section-label" style="justify-content: center">
+          Lo que dicen nuestros clientes
+        </div>
+        <h2 class="section-title">
+          RESEÑAS<br /><span style="color: var(--orange)">VERIFICADAS</span>
+        </h2>
+        <div class="grid-3">
+          <div class="card-nueva">
+            <div class="testimonio-stars">★★★★★</div>
+            <p class="testimonio-text">
+              "La mejor michelada sin alcohol que he probado. El sabor a
+              tamarindo es increíblemente auténtico. 100% recomendada."
+            </p>
+            <div class="testimonio-author">María González</div>
+            <div class="testimonio-role">Estudiante UNAN</div>
+          </div>
+          <div class="card-nueva">
+            <div class="testimonio-stars">★★★★★</div>
+            <p class="testimonio-text">
+              "El kit es perfecto para regalar. Lo compré para la graduación de
+              mi hermana y le encantó. El empaque es muy bonito."
+            </p>
+            <div class="testimonio-author">Carlos Mendieta</div>
+            <div class="testimonio-role">Cliente frecuente</div>
+          </div>
+          <div class="card-nueva">
+            <div class="testimonio-stars">★★★★★</div>
+            <p class="testimonio-text">
+              "Por fin una bebida con sabor a michelada sin alcohol. La atención
+              por WhatsApp es super rápida. Llegó en menos de una hora."
+            </p>
+            <div class="testimonio-author">Andrea Lacayo</div>
+            <div class="testimonio-role">UAM</div>
+          </div>
+        </div>
+        <p
+          style="color: var(--text-muted); font-size: 0.7rem; margin-top: 2rem"
+        >
+          ⭐ Más de 500 reseñas positivas · Opiniones verificadas de clientes
+          reales
+        </p>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="nueva-seccion" id="faq" style="background: var(--dark2)">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <div class="section-label" style="justify-content: center">
+          Preguntas Frecuentes
+        </div>
+        <h2 class="section-title">
+          RESOLVEMOS<br /><span style="color: var(--orange)">TUS DUDAS</span>
+        </h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>📦 ¿Cómo puedo hacer un pedido?</span><span>▼</span>
+            </div>
+            <div class="faq-answer">
+              Podés pedir directamente por WhatsApp al 8183-1981. Elegís tu
+              producto, nivel de picante y coordinamos la entrega.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>💰 ¿Cuáles son los métodos de pago?</span><span>▼</span>
+            </div>
+            <div class="faq-answer">
+              Aceptamos efectivo contra entrega, transferencia bancaria
+              (BAC/Banpro/Lafise), tarjeta de crédito/débito y pago móvil
+              (Sinpe).
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>🚚 ¿Cuánto tarda el envío?</span><span>▼</span>
+            </div>
+            <div class="faq-answer">
+              Las entregas en Managua se realizan en 24-48 horas. Pedidos antes
+              de 2pm pueden ser entregados el mismo día.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>🔄 ¿Puedo cambiar o devolver mi producto?</span
+              ><span>▼</span>
+            </div>
+            <div class="faq-answer">
+              Sí, contás con 7 días para cambios o devoluciones. El producto
+              debe estar en perfectas condiciones. Revisá nuestra política
+              completa.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>🔞 ¿Tiene alcohol?</span><span>▼</span>
+            </div>
+            <div class="faq-answer">
+              ¡No! MicheMix es 100% libre de alcohol. Disfrutala sin
+              restricciones.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>🎉 ¿Hacen eventos o ferias?</span><span>▼</span>
+            </div>
+            <div class="faq-answer">
+              Sí, participamos en ferias universitarias y eventos especiales.
+              Escríbenos para cotizar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLÍTICAS DE LA EMPRESA -->
+    <section
+      class="nueva-seccion"
+      id="politicas"
+      style="background: var(--dark3)"
+    >
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center">
+        <div class="section-label" style="justify-content: center">
+          Políticas
+        </div>
+        <h2 class="section-title">
+          NUESTROS<br /><span style="color: var(--orange)">COMPROMISOS</span>
+        </h2>
+        <div class="grid-3">
+          <div class="card-nueva">
+            <span class="card-icon">🔒</span>
+            <h3>Política de Privacidad</h3>
+            <p>
+              Tus datos personales son tratados con estricta confidencialidad.
+              No compartimos tu información con terceros sin tu consentimiento.
+            </p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">📜</span>
+            <h3>Términos y Condiciones</h3>
+            <p>
+              Al realizar un pedido aceptás nuestros términos. Los precios
+              pueden variar sin previo aviso, pero siempre se respetará el
+              precio acordado.
+            </p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">🔄</span>
+            <h3>Cambios y Devoluciones</h3>
+            <p>
+              Plazo de 7 días desde la recepción. Producto debe estar sin abrir.
+              Contactanos por WhatsApp para gestionarlo.
+            </p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">✅</span>
+            <h3>Garantía de Calidad</h3>
+            <p>
+              Garantizamos la frescura y calidad de todos nuestros ingredientes.
+              Si no estás satisfecho, te reponemos el producto.
+            </p>
+          </div>
+          <div class="card-nueva">
+            <span class="card-icon">🔐</span>
+            <h3>Seguridad en Pagos</h3>
+            <p>
+              Todos los pagos son procesados de forma segura. Tus datos
+              bancarios nunca son almacenados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INGREDIENTES -->
+    <section class="ingredients-section" id="ingredientes">
+      <div class="inner" style="max-width: 1200px; margin: 0 auto">
+        <div class="section-label">Lo Que La Hace Especial</div>
+        <h2 class="section-title reveal">
+          INGREDIENTES<br /><span style="color: var(--orange)">NATURALES</span>
+        </h2>
+        <div class="ingredients-grid">
+          <div class="ingredient-card">
+            <span class="ing-icon">🫗</span>
+            <div class="ing-name">Agua Gasificada</div>
+            <p class="ing-desc">
+              Luna o Fuente Pura de Sabor. La base perfecta que le da ese toque
+              chispeante e irresistible al MicheMix Classic.
+            </p>
+          </div>
+          <div class="ingredient-card">
+            <span class="ing-icon">🌿</span>
+            <div class="ing-name">Tamarindo Natural</div>
+            <p class="ing-desc">
+              Pulpa real producida internamente. Agridulce y profunda — el alma
+              de MicheMix y nuestro diferenciador auténtico de sabor nica.
+            </p>
+          </div>
+          <div class="ingredient-card">
+            <span class="ing-icon">🍋</span>
+            <div class="ing-name">Limón Fresco</div>
+            <p class="ing-desc">
+              Exprimido al momento. Ácido, fresco, vibrante. Equilibra el dulce
+              del tamarindo con maestría en cada preparación.
+            </p>
+          </div>
+          <div class="ingredient-card">
+            <span class="ing-icon">🌶</span>
+            <div class="ing-name">Chile, Tajín & Chamoy</div>
+            <p class="ing-desc">
+              Mezcla que corona el vaso y le da el kick ácido-dulce-picante
+              característico. El corazón de la personalización.
+            </p>
+          </div>
+          <div class="ingredient-card">
+            <span class="ing-icon">🍺</span>
+            <div class="ing-name">Heineken Sin Alcohol</div>
+            <p class="ing-desc">
+              Base del Premium. Experiencia de marca internacional que eleva
+              MicheMix a otro nivel — sin una gota de alcohol.
+            </p>
+          </div>
+          <div class="ingredient-card">
+            <span class="ing-icon">✨</span>
+            <div class="ing-name">Escarchado de Tajín</div>
+            <p class="ing-desc">
+              La firma visual de MicheMix — borde escarchado que hace cada vaso
+              una experiencia Instagram-worthy e irresistible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits-section" id="beneficios">
+      <div class="section-label reveal">Por Qué Elegirnos</div>
+      <h2 class="section-title reveal">
+        POR QUÉ<br /><span style="color: var(--orange)">MICHEMIX</span>
+      </h2>
+      <div class="benefits-grid">
+        <div class="benefit-item reveal">
+          <div class="benefit-num">01</div>
+          <div class="benefit-text">
+            <h3>Sin Alcohol, Todo el Sabor</h3>
+            <p>
+              La única michelada artesanal universitaria de Managua 100% sin
+              alcohol. Disfruta todos los sabores que te gustan — sin
+              restricciones y sin resaca.
+            </p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <div class="benefit-num">02</div>
+          <div class="benefit-text">
+            <h3>Personalización Total</h3>
+            <p>
+              Tu nivel de picante, tu acidez, tu escarchado. Cada MicheMix es
+              único — imposible de replicar industrialmente. La hacemos para
+              vos.
+            </p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <div class="benefit-num">03</div>
+          <div class="benefit-text">
+            <h3>Presentación Visual Brutal</h3>
+            <p>
+              Un vaso escarchado que entra por los ojos y genera contenido
+              orgánico viral. Hecha para tomarse la foto antes del primer sorbo.
+            </p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <div class="benefit-num">04</div>
+          <div class="benefit-text">
+            <h3>Identidad 100% Nicaragüense</h3>
+            <p>
+              Tamarindo local, manos universitarias, sabor artesanal auténtico.
+              Hecho en Managua, para Managua — con orgullo nica en cada vaso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA CARRUSEL -->
+    <section class="galeria-section" id="galeria">
+      <div class="galeria-header">
+        <div class="section-label">Galería Publicitaria</div>
+        <h2 class="section-title reveal">
+          NUESTRO<br /><span style="color: var(--orange)">UNIVERSO VISUAL</span>
+        </h2>
+      </div>
+      <div class="galeria-track-wrap reveal">
+        <div class="galeria-track" id="galeriaTrack">
+          <div class="galeria-card">
+            <img
+              src="img/carru1.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>🌶</span>
+              <p>Agrega img/galeria1.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru2.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>✨</span>
+              <p>Agrega img/galeria2.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru3.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>🎁</span>
+              <p>Agrega img/galeria3.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru4.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>🍋</span>
+              <p>Agrega img/galeria4.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru5.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>🌿</span>
+              <p>Agrega img/galeria5.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru6.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>🇳🇮</span>
+              <p>Agrega img/galeria6.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru7.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>📸</span>
+              <p>Agrega img/galeria7.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+          <div class="galeria-card">
+            <img
+              src="img/carru8.png"
+              alt="MicheMix"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div class="galeria-card-ph" style="display: none">
+              <span>🎉</span>
+              <p>Agrega img/galeria8.jpg</p>
+            </div>
+            <div class="galeria-card-overlay"></div>
+          </div>
+        </div>
+      </div>
+      <div class="galeria-controls reveal">
+        <button class="g-btn" onclick="pauseGaleria()">⏸</button
+        ><button class="g-btn" onclick="playGaleria()">▶</button>
+      </div>
+    </section>
+
+    <!-- IDENTIDAD NICARAGÜENSE -->
+    <section class="nica-section" id="identidad">
+      <div class="nica-inner">
+        <div class="nica-grid">
+          <div class="reveal">
+            <div class="section-label">Identidad Nacional</div>
+            <h2 class="section-title">
+              HECHO CON<br /><span style="color: var(--orange)"
+                >ORGULLO NICA</span
+              >
+            </h2>
+            <p class="nica-big-quote">
+              El sabor de <span>Nicaragua</span> en cada sorbo
+            </p>
+            <p class="nica-body">
+              MicheMix no es solo una bebida — es una expresión de identidad
+              nicaragüense. Nacimos en las universidades de Managua con la
+              convicción de que Nicaragua tiene ingredientes, sabores y talento
+              para crear productos de clase mundial.<br /><br />El tamarindo que
+              usamos es local. Las manos que lo preparan son universitarias. El
+              sabor que entregamos es auténticamente nico. Cada vaso de MicheMix
+              es un pequeño acto de orgullo cultural — un producto hecho aquí,
+              para la gente de aquí.
+            </p>
+            <div class="nica-tags">
+              <span class="nica-tag">Managua</span
+              ><span class="nica-tag">Artesanal Nica</span
+              ><span class="nica-tag">Tamarindo Local</span
+              ><span class="nica-tag">Universitario</span
+              ><span class="nica-tag">Sin Alcohol</span
+              ><span class="nica-tag">Hecho con 💛</span>
+            </div>
+          </div>
+          <div class="nica-visual reveal">
+            <div class="nica-banner">
+              <img
+                src="img/hechonic.png"
+                alt="MicheMix Nica"
+                class="nica-img"
+                onerror="
+                  this.src =
+                    'https://placehold.co/400x300/1a0f08/e8520a?text=Hecho+en+Nicaragua'
+                "
+              />
+            </div>
+            <div class="nica-chips">
+              <div class="nica-chip">
+                <div class="nica-chip-icon">🌿</div>
+                <div class="nica-chip-text">
+                  <strong>Insumos Locales</strong>Tamarindo y frutas de
+                  producción nicaragüense
+                </div>
+              </div>
+              <div class="nica-chip">
+                <div class="nica-chip-icon">🤝</div>
+                <div class="nica-chip-text">
+                  <strong>Emprendimiento Nica</strong>Fundado por estudiantes de
+                  la UNI Managua
+                </div>
+              </div>
+              <div class="nica-chip">
+                <div class="nica-chip-icon">🏙️</div>
+                <div class="nica-chip-text">
+                  <strong>Managua Presente</strong>En 5 universidades del área
+                  universitaria
+                </div>
+              </div>
+              <div class="nica-chip">
+                <div class="nica-chip-icon">🌱</div>
+                <div class="nica-chip-text">
+                  <strong>Producción Artesanal</strong>Sin fábricas. Sin
+                  conservantes. Solo manos nicas.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="section-label">Únete a la Experiencia</div>
+      <h2 class="cta-title reveal">PRUEBA LA<br /><span>DIFERENCIA</span></h2>
+      <p class="cta-sub reveal">
+        No te conformes con lo ordinario. MicheMix es el mocktail artesanal
+        universitario de Managua — todo el sabor, cero el alcohol, 100% vos.
+      </p>
+      <div class="cta-btns reveal">
+        <a
+          href="https://wa.me/50581831981?text=Hola!%20Quiero%20ordenar%20mi%20MicheMix%20🌶🔥"
+          target="_blank"
+          class="btn-primary"
+          >Ordenar Mi MicheMix</a
+        ><a href="#contacto" class="btn-secondary">Ver Contactos</a>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="contact-inner">
+        <div class="section-label">Encuéntranos</div>
+        <h2 class="contact-title reveal">
+          ESTAMOS<br /><span style="color: var(--orange)">PARA VOS</span>
+        </h2>
+        <p class="contact-sub reveal">
+          ¿Listo para tu primera MicheMix? Contáctanos donde prefieras —
+          respondemos rápido y con mucha vibra 🌶
+        </p>
+        <div class="social-cards reveal">
+          <a
+            href="https://instagram.com/michemix"
+            target="_blank"
+            class="social-card sc-ig"
+            ><div class="sicon">📸</div>
+            <div class="sname">Instagram</div>
+            <div class="shandle">@michemix</div></a
+          >
+          <a href="mailto:michemix@gmail.com" class="social-card sc-gmail"
+            ><div class="sicon">📧</div>
+            <div class="sname">Gmail</div>
+            <div class="shandle">michemix@gmail.com</div></a
+          >
+          <a
+            href="https://tiktok.com/@michemix"
+            target="_blank"
+            class="social-card sc-tiktok"
+            ><div class="sicon">🎵</div>
+            <div class="sname">TikTok</div>
+            <div class="shandle">@michemix</div></a
+          >
+          <a
+            href="https://wa.me/50581831981"
+            target="_blank"
+            class="social-card sc-wa"
+            ><div class="sicon">💬</div>
+            <div class="sname">WhatsApp</div>
+            <div class="shandle">8183-1981</div></a
+          >
+        </div>
+        <a
+          href="https://wa.me/50581831981?text=Hola!%20Quiero%20ordenar%20mi%20MicheMix%20🌶🔥"
+          target="_blank"
+          class="btn-primary"
+          style="display: inline-block"
+          >📱 Escríbenos por WhatsApp</a
+        >
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="mapa-section" id="ubicacion">
+      <div class="mapa-inner" style="max-width: 1200px; margin: 0 auto">
+        <div
+          class="mapa-header"
+          style="text-align: center; margin-bottom: 2rem"
+        >
+          <div class="section-label" style="justify-content: center">
+            Dónde Encontrarnos
+          </div>
+          <h2 class="section-title">
+            ESTAMOS EN<br /><span style="color: var(--orange)"
+              >LA UNI, MANAGUA</span
+            >
+          </h2>
+        </div>
+        <div class="mapa-grid">
+          <div class="mapa-info">
+            <div class="mapa-card">
+              <span class="mapa-card-icon" style="font-size: 1.5rem">🏛️</span>
+              <h4>Universidad Nacional de Ingeniería</h4>
+              <p>
+                Avenida Universitaria, Managua, Nicaragua. Campus Central UNI —
+                donde todo empezó.
+              </p>
+            </div>
+            <div class="mapa-card">
+              <span class="mapa-card-icon" style="font-size: 1.5rem">🕐</span>
+              <h4>Horario de Atención</h4>
+              <p>
+                Lunes a Viernes: 7:00 AM – 6:00 PM<br />Sábados: 8:00 AM – 2:00
+                PM
+              </p>
+            </div>
+            <div class="mapa-card">
+              <span class="mapa-card-icon" style="font-size: 1.5rem">📍</span>
+              <h4>Zonas de Cobertura</h4>
+              <p>UNI Central · UNHSJM · UAM · UNAN Managua · UNCSM</p>
+            </div>
+          </div>
+          <div class="mapa-embed-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.8795983583637!2d-86.2790017!3d12.1322085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7154e4f2d0da55%3A0x1e8ae2c9de81e7c3!2sUniversidad%20Nacional%20de%20Ingenier%C3%ADa%20(UNI)!5e0!3m2!1ses!2sni!4v1700000000000!5m2!1ses!2sni"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+            <div
+              class="mapa-badge"
+              style="
+                position: absolute;
+                bottom: 1rem;
+                left: 1rem;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 0.3rem 0.8rem;
+                border-radius: 20px;
+              "
+            >
+              <span>📍 UNI — Avenida Universitaria, Managua</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <span class="footer-logo-big">MicheMix</span>
+          <div class="footer-tagline">
+            Artisanal Mocktails · 100% Libre de Alcohol
+          </div>
+        </div>
+        <div class="footer-nav">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#quees">¿Qué es MicheMix?</a></li>
+            <li><a href="#historia">Nuestra Historia</a></li>
+            <li><a href="#valor">Propuesta de Valor</a></li>
+            <li><a href="#mision">Misión y Visión</a></li>
+            <li><a href="#productos">Nuestros Productos</a></li>
+            <li><a href="#ingredientes">Ingredientes</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#identidad">Identidad Nica</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-politicas">
+          <h4>Políticas</h4>
+          <ul>
+            <li>
+              <a
+                href="#"
+                onclick="
+                  alert(
+                    'Política de Privacidad: Tus datos personales son tratados con estricta confidencialidad.',
+                  )
+                "
+                >Política de Privacidad</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="
+                  alert(
+                    'Términos y Condiciones: Al realizar un pedido aceptás nuestros términos.',
+                  )
+                "
+                >Términos y Condiciones</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="
+                  alert(
+                    'Cambios y Devoluciones: Plazo de 7 días. Producto debe estar sin abrir.',
+                  )
+                "
+                >Cambios y Devoluciones</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="
+                  alert(
+                    'Garantía: Garantizamos la frescura y calidad de todos nuestros ingredientes.',
+                  )
+                "
+                >Garantía</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            style="
+              font-size: 0.65rem;
+              letter-spacing: 0.2em;
+              color: var(--orange);
+            "
+          >
+            Pide Ahora
+          </h4>
+          <a
+            href="https://wa.me/50581831981"
+            target="_blank"
+            class="btn-primary"
+            style="padding: 0.6rem 1.2rem; font-size: 0.7rem"
+            >📱 8183-1981</a
+          >
+        </div>
+      </div>
+      <div class="github-strip">
+        <div class="footer-copy">
+          © 2026 MicheMix Tamarindo · Managua, Nicaragua · Todos los derechos
+          reservados
+        </div>
+        <div class="github-group">
+          <a
+            href="https://github.com/Nazarethtinoco"
+            target="_blank"
+            class="github-badge"
+          >
+            <svg
+              class="gh-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            <div class="gh-text">
+              <span class="gh-label">Desarrollado por</span
+              ><span class="gh-user">Nazarethtinoco</span>
+            </div>
+          </a>
+          <a
+            href="https://github.com/FernandoGranja07"
+            target="_blank"
+            class="github-badge"
+          >
+            <svg
+              class="gh-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            <div class="gh-text">
+              <span class="gh-label">Desarrollado por</span
+              ><span class="gh-user">FernandoGranja07</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CARRITO MODAL -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h3>🛒 Tu Pedido</h3>
+          <button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-total" id="cartTotal">Total: C$0</div>
+        <button class="cart-checkout" id="checkoutBtn">
+          Finalizar Compra →
+        </button>
+        <p
+          style="
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            text-align: center;
+          "
+        >
+          Los precios incluyen escarchado de tajín y personalización de picante.
+        </p>
+      </div>
+    </div>
+
+    <!-- TU CHATBOT ORIGINAL -->
+    <div class="chat-float" id="chatFloat">
+      <button
+        class="chat-trigger"
+        id="chatTrigger"
+        aria-label="Abrir chat MicheMix"
+      >
+        🌶
+        <div class="chat-notif" id="chatNotif">1</div>
+      </button>
+    </div>
+    <div
+      class="chat-window"
+      id="chatWindow"
+      role="dialog"
+      aria-label="Chat MicheMix"
+    >
+      <div class="chat-header">
+        <div class="chat-avatar">🌶</div>
+        <div class="chat-header-info">
+          <h4>MicheMix Bot</h4>
+          <span>🟢 En línea · Responde al instante</span>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="Cerrar chat">
+          ✕
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-quick-btns" id="chatQuickBtns">
+        <button class="chat-qbtn" onclick="chatQuick('precios')">
+          💰 Precios
+        </button>
+        <button class="chat-qbtn" onclick="chatQuick('productos')">
+          🌶 Productos
+        </button>
+        <button class="chat-qbtn" onclick="chatQuick('ingredientes')">
+          🌿 Ingredientes
+        </button>
+        <button class="chat-qbtn" onclick="chatQuick('pedir')">
+          📦 Cómo pedir
+        </button>
+        <button class="chat-qbtn" onclick="chatQuick('ubicacion')">
+          📍 Ubicación
+        </button>
+        <button class="chat-qbtn" onclick="chatQuick('alcohol')">
+          🚫 Sin alcohol
+        </button>
+      </div>
+      <div class="chat-input-area">
+        <input
+          class="chat-input"
+          id="chatInput"
+          type="text"
+          placeholder="Preguntame sobre MicheMix..."
+          maxlength="200"
+          autocomplete="off"
+        /><button class="chat-send" id="chatSendBtn" aria-label="Enviar">
+          ➤
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // PARTÍCULAS
+      const container = document.getElementById("particles");
+      if (container) {
+        for (let i = 0; i < 25; i++) {
+          const p = document.createElement("div");
+          p.className = "particle";
+          const size = Math.random() * 4 + 2;
+          p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random() * 100}%;bottom:-20px;animation-duration:${Math.random() * 8 + 6}s;animation-delay:${Math.random() * 8}s;`;
+          container.appendChild(p);
+        }
+      }
+
+      // NAV SCROLL
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          ?.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // MOBILE MENU
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileClose = document.getElementById("mobileClose");
+      if (hamburger)
+        hamburger.addEventListener("click", () =>
+          mobileMenu.classList.add("open"),
+        );
+      if (mobileClose)
+        mobileClose.addEventListener("click", () =>
+          mobileMenu.classList.remove("open"),
+        );
+      window.closeMobile = () => mobileMenu.classList.remove("open");
+
+      // HERO SLIDES
+      const slides = [
+        {
+          badge: "🌶 100% Libre de Alcohol",
+          line1: "LA MICHE",
+          line2: "QUE BUSCABAS",
+          line3: "Artisanal Mocktails · Sabor Real",
+          sub: "Michelada de tamarindo artesanal sin alcohol. Agua gasificada, especias naturales y todo el sabor que te mereces — sin culpa, sin resaca, con toda la vibra.",
+          label: "Desliza para descubrir",
+        },
+        {
+          badge: "🫗 Base Gasificada Premium",
+          line1: "TAMARINDO",
+          line2: "EXPLOSIVO",
+          line3: "Luna · Fuente Pura · Sabor Auténtico",
+          sub: "Elaborada con agua gasificada Luna o Fuente Pura de Sabor — la burbuja perfecta que eleva el tamarindo natural a otro nivel. Classic desde C$149.",
+          label: "La base lo es todo",
+        },
+        {
+          badge: "🎁 Kit para Regalar",
+          line1: "HECHA",
+          line2: "CON ARTE",
+          line3: "Classic · Premium · Kit MicheMix",
+          sub: "Tres líneas para cada momento: Classic C$149, Premium C$199 y el Kit completo C$349. Personalizable, artesanal, 100% sin alcohol, 100% nicaragüense.",
+          label: "Visual brutal, sabor brutal",
+        },
+      ];
+      let current = 0;
+      const indicators = document.querySelectorAll(".indicator");
+      const fadeIds = [
+        "badge",
+        "line1",
+        "line2",
+        "line3",
+        "hero-sub",
+        "slide-label",
+      ];
+      window.goSlide = function (idx) {
+        fadeIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.style.opacity = "0";
+        });
+        setTimeout(() => {
+          const s = slides[idx];
+          document.getElementById("badge").textContent = s.badge;
+          document.getElementById("line1").textContent = s.line1;
+          document.getElementById("line2").textContent = s.line2;
+          document.getElementById("line3").textContent = s.line3;
+          document.getElementById("hero-sub").textContent = s.sub;
+          document.getElementById("slide-label").textContent = s.label;
+          fadeIds.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) el.style.opacity = "1";
+          });
+          indicators.forEach((ind, i) =>
+            ind.classList.toggle("active", i === idx),
+          );
+          current = idx;
+        }, 400);
+      };
+      setInterval(() => goSlide((current + 1) % slides.length), 4500);
+
+      // VIDEO
+      const video = document.getElementById("mainVideo");
+      const videoPh = document.getElementById("videoPh");
+      if (video) {
+        video.addEventListener("error", () => {
+          video.style.display = "none";
+          if (videoPh) videoPh.style.display = "flex";
+        });
+        video.addEventListener("loadedmetadata", () => {
+          if (videoPh) videoPh.style.display = "none";
+          video.style.display = "block";
+        });
+        const videoObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) video.play().catch(() => {});
+              else video.pause();
+            });
+          },
+          { threshold: 0.3 },
+        );
+        videoObs.observe(video);
+      }
+
+      // GALERÍA CONTROLES
+      const track = document.getElementById("galeriaTrack");
+      window.pauseGaleria = () => {
+        if (track) track.style.animationPlayState = "paused";
+      };
+      window.playGaleria = () => {
+        if (track) track.style.animationPlayState = "running";
+      };
+
+      // SCROLL REVEAL
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal, .ingredient-card")
+        .forEach((el) => obs.observe(el));
+      document.querySelectorAll(".ingredient-card").forEach((c, i) => {
+        c.style.transitionDelay = `${i * 0.12}s`;
+      });
+
+      // SMOOTH SCROLL
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // FAQ ACORDEÓN
+      document.querySelectorAll(".faq-question").forEach((q) => {
+        q.addEventListener("click", () => {
+          q.parentElement.classList.toggle("open");
+        });
+      });
+
+      // BUSCADOR
+      const searchInput = document.getElementById("searchInput");
+      const allProducts = document.querySelectorAll(".producto-featured");
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          const term = e.target.value
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+          allProducts.forEach((product) => {
+            const name = product.getAttribute("data-name")?.toLowerCase() || "";
+            const matches = name.includes(term) || term === "";
+            product.style.display = matches ? "grid" : "none";
+          });
+        });
+      }
+
+      // ========== CARRITO DE COMPRAS ==========
+      let cart = JSON.parse(localStorage.getItem("michemixCart")) || [];
+
+      function updateCartDisplay() {
+        const cartCount = document.getElementById("cartCount");
+        const cartItemsDiv = document.getElementById("cartItems");
+        const cartTotalSpan = document.getElementById("cartTotal");
+
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (cartCount) cartCount.textContent = totalItems;
+
+        if (cartItemsDiv) {
+          if (cart.length === 0) {
+            cartItemsDiv.innerHTML =
+              '<p style="text-align: center; color: var(--text-muted);">Tu carrito está vacío 🛒</p>';
+            if (cartTotalSpan) cartTotalSpan.textContent = "Total: C$0";
+            return;
+          }
+          cartItemsDiv.innerHTML = cart
+            .map(
+              (item, idx) => `
+          <div class="cart-item">
+            <div class="cart-item-info"><h4>${item.name}</h4><p>C$${item.price} c/u</p></div>
+            <div class="cart-item-quantity">
+              <button onclick="updateQuantity(${idx}, -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateQuantity(${idx}, 1)">+</button>
+              <span style="margin-left: 0.8rem;">C$${item.price * item.quantity}</span>
+            </div>
+          </div>
+        `,
+            )
+            .join("");
+          const total = cart.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0,
+          );
+          if (cartTotalSpan) cartTotalSpan.textContent = `Total: C$${total}`;
+        }
+        localStorage.setItem("michemixCart", JSON.stringify(cart));
+      }
+
+      window.updateQuantity = function (index, delta) {
+        const newQty = cart[index].quantity + delta;
+        if (newQty <= 0) cart.splice(index, 1);
+        else cart[index].quantity = newQty;
+        updateCartDisplay();
+      };
+
+      window.addToCart = function (name, price) {
+        const existing = cart.find((item) => item.name === name);
+        if (existing) existing.quantity++;
+        else cart.push({ name, price, quantity: 1 });
+        updateCartDisplay();
+
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = "✓ Agregado!";
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 1500);
+      };
+
+      // CARRITO MODAL
+      const cartModal = document.getElementById("cartModal");
+      const cartIcon = document.getElementById("cartIcon");
+      const cartClose = document.getElementById("cartClose");
+      const checkoutBtn = document.getElementById("checkoutBtn");
+
+      if (cartIcon)
+        cartIcon.addEventListener("click", () => {
+          updateCartDisplay();
+          cartModal.classList.add("open");
+        });
+      if (cartClose)
+        cartClose.addEventListener("click", () =>
+          cartModal.classList.remove("open"),
+        );
+      if (checkoutBtn)
+        checkoutBtn.addEventListener("click", () => {
+          if (cart.length === 0) {
+            alert(
+              "🛒 Tu carrito está vacío. Agregá productos antes de finalizar.",
+            );
+            return;
+          }
+          const total = cart.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0,
+          );
+          const message = `Hola! Quiero finalizar mi pedido:%0A%0A${cart.map((item) => `• ${item.name} x${item.quantity} = C$${item.price * item.quantity}`).join("%0A")}%0A%0A📍 Total: C$${total}%0A%0A🌶 Nivel de picante: (suave/medio/extra)%0A📍 Dirección de entrega: %0A📞 Teléfono:`;
+          window.open(`https://wa.me/50581831981?text=${message}`, "_blank");
+        });
+
+      updateCartDisplay();
+
+      // ========== TU CHATBOT ORIGINAL ==========
+      (function () {
+        const state = { open: false, typing: false };
+        const respuestas = {
+          saludo: [
+            "¡Hola! 🌶 Soy MicheMix Bot. ¿Qué quieres saber? Puedo contarte de precios, sabores, ingredientes o dónde encontrarnos.",
+            "¡Qué onda! 🌶 ¿Listo para tu MicheMix? Pregúntame lo que sea.",
+          ],
+          precio: [
+            "💰 <strong>Classic:</strong> C$149 | <strong>Premium:</strong> C$199 | <strong>Kit:</strong> C$349\n\n¿Quieres pedir ya? Escríbenos por WhatsApp al 8183-1981",
+          ],
+          producto: [
+            "🌶 Tenemos 3 productos:\n• Classic (C$149) - Agua gasificada\n• Premium (C$199) - Heineken 0.0\n• Kit Hazlo en Casa (C$349)\n¿Cuál te interesa?",
+          ],
+          ingredientes: [
+            "🌿 Nuestros ingredientes:\n✅ Pulpa de tamarindo natural\n✅ Limón fresco exprimido\n✅ Chamoy, Tajín y chile\n✅ Agua gasificada (Luna/Fuente Pura)\n✅ Heineken 0.0 (Premium)\n✅ Escarchado de Tajín\n\n100% naturales, sin alcohol.",
+          ],
+          pedir: [
+            "📦 Pedir es fácil:\n1. WhatsApp al 8183-1981\n2. Dinos qué quieres (Classic/Premium/Kit)\n3. Elige tu picante (suave/medio/extra)\n4. Coordinamos entrega\n\n¿Listo para pedir?",
+          ],
+          ubicacion: [
+            "📍 Estamos en la UNI (Avenida Universitaria, Managua). También en UNHSJM, UAM, UNAN y UNCSM.\n¿Quieres saber dónde estamos hoy? Escríbenos por WhatsApp.",
+          ],
+          alcohol: [
+            "🚫 ¡Sí! MicheMix es 100% libre de alcohol. Todo el sabor, cero restricciones. 🌶️",
+          ],
+          personalizacion: [
+            "🎨 ¡Claro! Puedes elegir:\n• Picante: suave, medio o extra\n• Acidez: poca, normal o extra\n• Escarchado: con o sin tajín\n\nCada MicheMix es única para ti.",
+          ],
+          horario: [
+            "🕐 Horario de atención:\nLunes a Viernes: 7am - 6pm\nSábados: 8am - 2pm\nDomingos: cerramos\n¿Evento especial? Escríbenos.",
+          ],
+          contacto: [
+            "📱 Contáctanos:\n• WhatsApp: 8183-1981\n• Instagram: @michemix\n• TikTok: @michemix\n• Gmail: michemix@gmail.com",
+          ],
+          kit: [
+            "🎁 Kit 'Hazlo en Casa' - C$349\nIncluye: pulpa de tamarindo, chamoy, tajín, chile, vaso y tarjeta personalizable.\n¡El regalo perfecto!",
+          ],
+          descuento: [
+            "🎉 ¡Sí tenemos descuentos!\n• 2+ kits: 5% off\n• 50+ unidades (B2B): precio especial\n• Eventos: cotización personalizada\nEscríbenos por WhatsApp para más info.",
+          ],
+          envio: [
+            "🚚 Hacemos entregas en Managua. El costo depende de la zona. Escríbenos por WhatsApp con tu dirección y te confirmamos.",
+          ],
+          sabor: [
+            "🔥 El sabor es único: tamarindo agridulce, limón fresco, un toque de chamoy y el picante del tajín. ¿Te animas a probarlo?",
+          ],
+          tamarindo: [
+            "🌿 Usamos pulpa de tamarindo 100% natural, producida por nosotros. ¡Ese es nuestro secreto!",
+          ],
+          uni: [
+            "🎓 ¡Sí! Nacimos en la UNI (Universidad Nacional de Ingeniería). Ahí nos encuentras fácilmente en el campus.",
+          ],
+          precio_mayoreo: [
+            "📦 Precios por mayoreo (B2B):\n• Classic: C$134 (50+)\n• Premium: C$179 (50+)\n• Kit: C$314 (50+)\n¿Interesado? Escríbenos a WhatsApp.",
+          ],
+          evento: [
+            "🎉 ¡Claro que hacemos eventos! Ferias universitarias, graduaciones, cumpleaños... Escríbenos a WhatsApp para cotizar.",
+          ],
+          pago: [
+            "💵 Aceptamos:\n• Efectivo\n• Transferencia bancaria\n• Sinpe Móvil\nEn eventos especiales, también tarjeta. 📲",
+          ],
+          default: [
+            "🌶 ¡Buena pregunta! No tengo esa info exacta, pero nuestro equipo humano te responderá al instante por WhatsApp al 8183-1981. ¿Quieres que te ayude con precios, productos o ubicación mientras tanto?",
+          ],
+        };
+        function entenderPregunta(texto) {
+          const t = texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+          if (/hola|buenas|hey|ola|saludos|qué tal|qué onda/.test(t))
+            return "saludo";
+          if (/precio|cuánto|cuesta|costo|valor|precios|caro|barato/.test(t))
+            return "precio";
+          if (
+            /producto|qué venden|qué ofrece|tienen|catálogo|menú|opciones/.test(
+              t,
+            )
+          )
+            return "producto";
+          if (
+            /ingrediente|qué lleva|de qué está hecho|compuesto|natural/.test(t)
+          )
+            return "ingredientes";
+          if (/pedir|cómo pido|ordenar|comprar|adquirir|conseguir/.test(t))
+            return "pedir";
+          if (/dónde|ubicación|ubicado|mapa|campus|uni|universidad/.test(t))
+            return "ubicacion";
+          if (/alcohol|tiene alcohol|sin alcohol|con alcohol/.test(t))
+            return "alcohol";
+          if (/personalizar|picante|ácido|escarchado|nivel/.test(t))
+            return "personalizacion";
+          if (/horario|hora|atienden|abren|abierto/.test(t)) return "horario";
+          if (/contacto|whatsapp|instagram|tiktok|gmail|redes/.test(t))
+            return "contacto";
+          if (/kit|regalo|regalar|cumpleaños|graduación|caja/.test(t))
+            return "kit";
+          if (/descuento|oferta|promoción|2x1|rebaja/.test(t))
+            return "descuento";
+          if (/envío|domicilio|entrega|llevan|recoger/.test(t)) return "envio";
+          if (/sabor|sabe|rico|delicioso/.test(t)) return "sabor";
+          if (/tamarindo|pulpa|fruta/.test(t)) return "tamarindo";
+          if (/mayoreo|volumen|b2b|cantidad/.test(t)) return "precio_mayoreo";
+          if (/evento|fiesta|graduación|cumpleaños|universidad|feria/.test(t))
+            return "evento";
+          if (/pago|efectivo|tarjeta|transferencia|sinpe/.test(t))
+            return "pago";
+          return "default";
+        }
+        function renderMsg(who, text) {
+          const msgs = document.getElementById("chatMessages");
+          const div = document.createElement("div");
+          div.className = `chat-msg ${who}`;
+          const bubble = document.createElement("div");
+          bubble.className = "msg-bubble";
+          bubble.innerHTML = text.replace(/\n/g, "<br/>");
+          if (who === "bot") {
+            const av = document.createElement("div");
+            av.className = "msg-avatar";
+            av.textContent = "🌶";
+            div.appendChild(av);
+          }
+          div.appendChild(bubble);
+          msgs.appendChild(div);
+          msgs.scrollTop = msgs.scrollHeight;
+          return div;
+        }
+        function showTyping() {
+          state.typing = true;
+          const msgs = document.getElementById("chatMessages");
+          const div = document.createElement("div");
+          div.className = "chat-msg bot";
+          div.id = "typingIndicator";
+          const av = document.createElement("div");
+          av.className = "msg-avatar";
+          av.textContent = "🌶";
+          const bubble = document.createElement("div");
+          bubble.className = "msg-bubble";
+          bubble.innerHTML =
+            '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+          div.appendChild(av);
+          div.appendChild(bubble);
+          msgs.appendChild(div);
+          msgs.scrollTop = msgs.scrollHeight;
+        }
+        function hideTyping() {
+          state.typing = false;
+          const el = document.getElementById("typingIndicator");
+          if (el) el.remove();
+        }
+        function botReply(intent) {
+          const opciones = respuestas[intent] || respuestas.default;
+          const respuesta =
+            opciones[Math.floor(Math.random() * opciones.length)];
+          showTyping();
+          setTimeout(() => {
+            hideTyping();
+            renderMsg("bot", respuesta);
+          }, 700);
+        }
+        function sendMsg(text) {
+          if (!text.trim() || state.typing) return;
+          renderMsg("user", text);
+          document.getElementById("chatInput").value = "";
+          const intent = entenderPregunta(text);
+          botReply(intent);
+        }
+        window.chatQuick = function (key) {
+          const map = {
+            precios: "¿Cuánto cuesta?",
+            productos: "¿Qué productos tienen?",
+            ingredientes: "¿Qué ingredientes usan?",
+            pedir: "¿Cómo puedo pedir?",
+            ubicacion: "¿Dónde están ubicados?",
+            alcohol: "¿Tiene alcohol?",
+          };
+          sendMsg(map[key] || key);
+        };
+        function openChat() {
+          state.open = true;
+          document.getElementById("chatWindow").classList.add("open");
+          document.getElementById("chatFloat").style.opacity = "0";
+          document.getElementById("chatFloat").style.pointerEvents = "none";
+          document.getElementById("chatNotif").style.display = "none";
+          document.getElementById("chatInput").focus();
+          if (document.getElementById("chatMessages").children.length === 0) {
+            setTimeout(() => {
+              showTyping();
+              setTimeout(() => {
+                hideTyping();
+                renderMsg(
+                  "bot",
+                  '🌶 <strong>¡Hola! Soy MicheMix Bot</strong>, tu asistente inteligente.\n\nPuedes preguntarme <strong>cualquier cosa</strong> sobre:\n• Precios y promociones\n• Ingredientes y sabores\n• Dónde encontrarnos\n• Cómo pedir tu MicheMix\n• Descuentos por volumen\n• Eventos y ferias\n\n📝 <em>Ejemplo: "¿Cuánto cuesta el Kit?" o "¿Hacen envíos a domicilio?"</em>\n\n¡Pregúntame lo que quieras! 🌶️👇',
+                );
+              }, 1000);
+            }, 300);
+          }
+        }
+        function closeChat() {
+          state.open = false;
+          document.getElementById("chatWindow").classList.remove("open");
+          document.getElementById("chatFloat").style.opacity = "1";
+          document.getElementById("chatFloat").style.pointerEvents = "all";
+        }
+        document
+          .getElementById("chatTrigger")
+          ?.addEventListener("click", openChat);
+        document
+          .getElementById("chatClose")
+          ?.addEventListener("click", closeChat);
+        document
+          .getElementById("chatSendBtn")
+          ?.addEventListener("click", () =>
+            sendMsg(document.getElementById("chatInput").value),
+          );
+        document
+          .getElementById("chatInput")
+          ?.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") sendMsg(e.target.value);
+          });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && state.open) closeChat();
+        });
+        setTimeout(() => {
+          if (!state.open && document.getElementById("chatNotif")) {
+            document.getElementById("chatNotif").style.display = "flex";
+            document.getElementById("chatNotif").textContent = "💬";
+          }
+        }, 7000);
+      })();
+    </script>
+  </body>
+</html>
